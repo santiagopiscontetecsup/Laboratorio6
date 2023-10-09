@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hora_vuelo = $_POST["hora_vuelo"];
     $precio = $_POST["precio"];
     $fecha_reserva = $_POST["fecha_reserva"];
-    $id_usuario = $_POST["id_usuario"]; // Asegúrate de que este valor sea el ID del usuario actual
+    $id_usuario = $_POST["id_usuario"]; 
 
     include_once "model/conexion.php";
 
@@ -29,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $stmtVuelo = $bd->prepare($sqlVuelo);
 
-        // Establece los valores adecuados para origen y destino (debes obtenerlos del formulario)
         $origen = "Origen";
         $destino = "Destino";
 
