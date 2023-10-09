@@ -1,0 +1,38 @@
+CREATE DATABASE aerolinea;
+USE aerolinea;
+CREATE TABLE vuelos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    numero_vuelo VARCHAR(10) NOT NULL,
+    origen VARCHAR(100) NOT NULL,
+    destino VARCHAR(100) NOT NULL,
+    fecha_salida DATE NOT NULL,
+    hora_salida TIME NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE pasajeros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombres VARCHAR(100) NOT NULL,
+    apellido_paterno VARCHAR(100) NOT NULL,
+    apellido_materno VARCHAR(100) NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+    celular VARCHAR(12) NOT NULL
+);
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE reservas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_vuelo INT NOT NULL,
+    id_pasajero INT NOT NULL,
+    id_usuario INT NOT NULL,
+    fecha_reserva DATE NOT NULL,
+    FOREIGN KEY (id_vuelo) REFERENCES vuelos(id),
+    FOREIGN KEY (id_pasajero) REFERENCES pasajeros(id),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) 
+);
