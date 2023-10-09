@@ -19,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
     }
 }
 
-// Redirige a la página de lista de pasajeros después de eliminar
 header("Location: lista_pasajeros.php");
 exit();
 ?>
